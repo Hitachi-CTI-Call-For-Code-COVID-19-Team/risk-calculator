@@ -127,7 +127,7 @@ To us IBM Cloud functions, create or target a namespace. In this sample the name
     **REQUIRED SETTING:**
 
   - Set Cloudant credentials: input credentials [here](/runtimes/actions/riskCalculationFlow/calculator.py) and [here](/runtimes/actions/riskCalculationFlow/prepareDataForCalculation/queryRelevantStaff.py).
-  you can gets created by [delivery scripts](delivery/scripts/.credentials) or as obtained in above (Cloudant) steps.
+  you can gets cloudant credentials from  [delivery repo](https://github.com/Hitachi-CTI-Call-For-Code-COVID-19-Team/delivery.git) <code>(delivery/scripts/.credentials)</code> or as obtained in above (Cloudant-binding) steps.
 
 - Deploy the template
 
@@ -158,9 +158,9 @@ After the template deploys, you can make further edits to the code to customize 
     ```sh
     cd risk-calculator/runtimes/actions/riskCalculationFlow/
 
-    ibmcloud fn action create risk-calculator/getTodaysSensorDBName /periodicDataQuery/getTodaysSensorDBName.py --kind python:3.7
+    ibmcloud fn action create risk-calculator/getTodaysSensorDBName periodicDataQuery/getTodaysSensorDBName.py --kind python:3.7
 
-    ibmcloud fn action create risk-calculatorcreateQuerySelector periodicDataQuery/createQuerySelector.js --kind nodejs:10
+    ibmcloud fn action create risk-calculator/createQuerySelector periodicDataQuery/createQuerySelector.js --kind nodejs:10
 
     ibmcloud fn action create risk-calculator/checkQueryValidity periodicDataQuery/checkQueryValidity.py --kind python:3.7
 
@@ -187,7 +187,10 @@ After the template deploys, you can make further edits to the code to customize 
     ibmcloud fn action create <sequence_name> --sequence <action_1>,<action_2>
     ```
 
-    Sample: Create three sequences named: <code> periodicDataQuery, prepareDataForCalculation, riskCalculationFlow </code>
+    Sample: 
+    
+    This sample Create sthree sequences named: <code> periodicDataQuery, prepareDataForCalculation, riskCalculationFlow </code>.
+    - Uses Cloudant-package functions named <code> exec-query-find </code> and <code> manage-bulk-documents </code>.
 
     ```sh
     ibmcloud fn action create periodicDataQuery --sequence getTodaysSensorDBName,createQuerySelector,/_/myCloudant/exec-query-find,checkQueryValidity
@@ -205,7 +208,9 @@ After the template deploys, you can make further edits to the code to customize 
     ibmcloud fn trigger create TRIGGER_NAME
     ```
 
-    Sample: Trigger for ONE minute, you can input cron "* * * * *"  to change the interval
+    Sample: 
+
+    Trigger for ONE minute, you can change [cron expression](https://en.wikipedia.org/wiki/Cron) in <code> cron "* * * * *" </code> to change the interval
 
     ```sh
     ibmcloud fn trigger create periodicOneMinute --feed /whisk.system/alarms/alarm -p cron "* * * * *" -p trigger_payload "{}"
