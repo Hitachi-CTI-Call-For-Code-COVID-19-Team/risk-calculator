@@ -4,7 +4,7 @@ This repository consits of functions related to risk-calculator. Its task is to 
 
 This sequence comprises of smaller sequences, actions and some default [openwhisk-cloudant actions](https://github.com/ibm-functions/package-cloudant/tree/master/packages/database-actions).
 
-[![risk-calculator](/images/risk-calculator.png)](/images/risk-calculator.pdf)
+[![risk-calculator](./images/risk-calculator.png)](/images/risk-calculator.pdf)
 
 ## Implementation steps
 *Pre-requisite*:
