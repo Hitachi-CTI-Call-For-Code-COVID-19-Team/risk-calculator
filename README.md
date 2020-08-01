@@ -259,6 +259,11 @@ Next, you can test the trigger or create a rule to associate the trigger with an
 
 You can see that the activations occur every minute for the trigger, the rule, and the action.
 
+## Related
+- [Edge Data collector](https://github.com/Hitachi-CTI-Call-For-Code-COVID-19-Team/edge-data-collector.git)
+- [Risk Notifier](https://github.com/Hitachi-CTI-Call-For-Code-COVID-19-Team/risk-notifier.git)
+- [Push Notification](https://github.com/Hitachi-CTI-Call-For-Code-COVID-19-Team/push-notifications.git)
+
 -------------
 
 #### [Licence](LICENSE.txt)
