@@ -78,8 +78,8 @@ def asessStaffRisk(rOutput, assetData_Staff = [], staffIdentifier = "id", findin
     c_staffRiskData = 0
     identifierArea = rOutput["id"]
     
-    username_cloudant = ""                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
-    apikey_cloudant =   ""                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
+    username_cloudant = "<CLOUDANT_READER_CREDENTIALS>"                    #   "INPUT YOUR CLOUDANT CREDENTIALS"
+    apikey_cloudant =   "<CLOUDANT_READER_CREDENTIALS>"                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
     client = Cloudant.iam(username_cloudant, apikey_cloudant)
     client.connect()
     assetData_Staff = client["assets_staff"]   
@@ -209,8 +209,8 @@ def setOutput(identifier00, riskCurrent00, severityValue00, rType00):
 def getCumulativeRiskValue(identifier0):
 
     lastCumVal = 0.0
-    username_cloudant = ""                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
-    apikey_cloudant =   ""                      #   "INPUT YOUR CLOUDANT CREDENTIALS""
+    username_cloudant = "<CLOUDANT_READER_CREDENTIALS>"                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
+    apikey_cloudant =   "<CLOUDANT_READER_CREDENTIALS>"                      #   "INPUT YOUR CLOUDANT CREDENTIALS""
     client = Cloudant.iam(username_cloudant, apikey_cloudant)
     client.connect()
 

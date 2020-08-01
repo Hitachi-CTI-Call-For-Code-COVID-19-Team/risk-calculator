@@ -9,15 +9,15 @@ This sequence comprises of smaller sequences, actions and some default openwhisk
 
 - Install [IBM cloud CLI](https://cloud.ibm.com/docs/openwhisk?topic=openwhisk-cli_install)
 - [Setting up](https://cloud.ibm.com/docs/cli?topic=cli-getting-started) CLI environment.
+- [Create cloudant instance](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant)
+
 
 Steps to implement risk-calulator are mentioned as follows:
 
 - target/create namespace
 - create required cloudant-bindings
 - deploying the actions/sequences
-- deploying trigger 
-
-
+- deploying trigger
 
 ## Target namespace
 
@@ -68,8 +68,6 @@ To us IBM Cloud functions, create or target a namespace. In this sample the name
 ## Binding the /whisk.system/cloudant package to your IBM Cloudant database
 [see source for details](https://cloud.ibm.com/docs/openwhisk?topic=openwhisk-pkg_cloudant)
 
-*Prerequisite*: [Create cloudnat instance](https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant)
-
 - Create a /whisk.system/cloudant package binding that is configured for your IBM Cloudant account and verify it. In this example, the package name is <code>myCloudant</code>.
 
     ```sh
@@ -92,8 +90,10 @@ To us IBM Cloud functions, create or target a namespace. In this sample the name
 
     **Example output**
 
+    ```sh
     Name          Location   State    Type
     cloudant-dev   jp-tok   active   service_instance
+    ```
 
 - Get the credentials for your cloudant-service instance.
 
@@ -121,9 +121,13 @@ To us IBM Cloud functions, create or target a namespace. In this sample the name
 - Clone the Risk-Calculator template repo.
 
     ```sh
-    git clone https://gitlab.rdcloud.intra.hitachi.co.jp/call-for-code-2020/covid-19/cloud-functons/risk-calculator.git
-
+    git clone https://github.com/Hitachi-CTI-Call-For-Code-COVID-19-Team/risk-calculator.git
     ```
+
+    **REQUIRED SETTING:**
+
+  - Set Cloudant credentials: input credentials [here](/runtimes/actions/riskCalculationFlow/calculator.py) and [here](/runtimes/actions/riskCalculationFlow/prepareDataForCalculation/queryRelevantStaff.py).
+  you can gets created by [delivery scripts](delivery/scripts/.credentials) or as obtained in above (Cloudant) steps.
 
 - Deploy the template
 

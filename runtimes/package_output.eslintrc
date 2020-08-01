@@ -1,11 +1,11 @@
 // {
 //     "timestamp": "2020-06-11T10:00:00+09:00",       // current time stamp, datetime.time(datetime.now())
-//     "id": "area-MARCHE_aisle-0001",                 // id from asset/sensor DB,  newSensorData["id"]
+//     "id": "area_aisle-0001",                 // id from asset/sensor DB,  newSensorData["id"]
 //     "risk": {
 //             "value": 0.7,                           // between 0 and 1
 //             "cumValue": 0.9,                        // between 0 and 1
-//             "level": "H",                           // L: low, A: acceptable, H:high
-//             "type": "c"                             // c: congestion, d: disinfection, s: sanitisation
+//             "level": "high",                           // L: low, A: acceptable, H:high
+//             "type": "c"                             // c: congestion, d: disinfection, s: sanitisation, st : staff , t: total
 //         }
 //     }
 

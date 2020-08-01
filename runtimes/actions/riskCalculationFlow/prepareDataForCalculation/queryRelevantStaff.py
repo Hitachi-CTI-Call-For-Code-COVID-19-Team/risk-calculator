@@ -17,8 +17,8 @@ from cloudant import cloudant
 
 def main(dict):
 
-    username_cloudant = ""                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
-    apikey_cloudant =   ""                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
+    username_cloudant = "<CLOUDANT_READER_CREDENTIALS>"                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
+    apikey_cloudant =   "<CLOUDANT_READER_CREDENTIALS>"                      #   "INPUT YOUR CLOUDANT CREDENTIALS"
     client = Cloudant.iam(username_cloudant, apikey_cloudant)
     client.connect()
     my_database = client["assets_staff"]
