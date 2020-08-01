@@ -2,7 +2,7 @@
 
 This repository consits of functions related to risk-calculator. Its task is to periodically read data a from cloudant (raw sensor data), cleans and normalise the data for calculation and gives current risk-data (ANSHIN-index) as [output](./runtimes/package_output.eslintrc).
 
-This sequence comprises of smaller sequences, actions and some default openwhisk-cloudant actions ([explained here](runtimes/actions/readme.md)).
+This sequence comprises of smaller sequences, actions and some default [openwhisk-cloudant actions](https://github.com/ibm-functions/package-cloudant/tree/master/packages/database-actions).
 
 ## Implementation steps
 *Pre-requisite*:
@@ -16,8 +16,7 @@ Steps to implement risk-calulator are mentioned as follows:
 
 - target/create namespace
 - create required cloudant-bindings
-- deploying the actions/sequences
-- deploying trigger
+- deploying the risk-calculator actions, sequences and trigger
 
 ## Target namespace
 
